@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ร้านซ้งปาร์เก้ | ไม้ปาร์เก้ กระเบื้องยาง กาวติดตั้ง กรุงเทพฯ</title>
+  <meta name="description" content="ร้านซ้งปาร์เก้ จำหน่ายไม้ปาร์เก้ กระเบื้องยาง กาวสำหรับกระเบื้องยาง และกระเบื้องยางยี่ห้อ Dynoflex ที่ประชาอุทิศ ราษฎร์บูรณะ กรุงเทพฯ โทร 089-922-1655" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&family=Prompt:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #24303a;
+      --muted: #61707c;
+      --line: #e6dfd5;
+      --brand: #8a5a33;
+      --brand-dark: #67411f;
+      --accent: #f4ede3;
+      --good: #157347;
+      --shadow: 0 12px 30px rgba(46, 36, 25, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans Thai", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 8px;
+      background: #fff;
+      padding: 10px 14px;
+      z-index: 100;
+      border-radius: 10px;
+    }
+
+    .skip:focus {
+      left: 8px;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(230, 223, 213, 0.7);
+    }
+
+    .nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-family: "Prompt", sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--brand);
+    }
+
+    .menu {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .menu a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .menu a:hover,
+    .menu a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav .btn {
+      padding: 0.65rem 1rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 0.6rem 0.8rem;
+      font: inherit;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.9rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+    }
+
+    .hero {
+      padding: 64px 0 40px;
+      scroll-margin-top: 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0 0 18px;
+    }
+
+    h1 {
+      font-family: "Prompt", sans-serif;
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 0 20px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eef7f1;
+      color: var(--good);
+      border: 1px solid #cfe8d9;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .address {
+      color: var(--muted);
+      margin: 0;
+      max-width: 65ch;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .hero-card h2 {
+      font-family: "Prompt", sans-serif;
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+    }
+
+    .info-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .info-list strong {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .mini-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .section {
+      padding: 34px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      font-family: "Prompt", sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      margin: 0 0 8px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card .media {
+      height: 150px;
+      position: relative;
+    }
+
+    .card .content {
+      padding: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.25rem 0.55rem;
+      font-size: 0.78rem;
+    }
+
+    .media-wood {
+      background: repeating-linear-gradient(
+        90deg,
+        #b98958 0 18px,
+        #a97844 18px 23px,
+        #c49a6c 23px 45px,
+        #9c6b3c 45px 47px
+      );
+    }
+
+    .media-vinyl {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)),
+        repeating-linear-gradient(0deg, #d8d2c7 0 34px, #cfc7ba 34px 37px),
+        repeating-linear-gradient(90deg, #d8d2c7 0 34px, #cfc7ba 34px 37px);
+      background-blend-mode: overlay, multiply, multiply;
+    }
+
+    .media-glue {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7), transparent 20%),
+        linear-gradient(135deg, #f4f0e9, #dcd3c5);
+    }
+
+    .media-brand {
+      background: linear-gradient(135deg, #24303a, #4b5f6d);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    dl.details {
+      display: grid;
+      gap: 14px;
+      margin: 18px 0 0;
+    }
+
+    dl.details div {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    dl.details dt {
+      color: var(--muted);
+    }
+
+    dl.details dd {
+      margin: 0;
+    }
+
+    .map-frame {
+      border: 0;
+      width: 100%;
+      min-height: 380px;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .footer {
+      padding: 28px 0 100px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 92px;
+      transform: translateX(-50%);
+      background: #24303a;
+      color: #fff;
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s;
+      z-index: 70;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    .mobile-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      gap: 10px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid var(--line);
+      z-index: 60;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4,
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--line);
+        padding: 18px 16px 20px;
+      }
+
+      .menu.open {
+        display: flex;
+      }
+
+      .mobile-cta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-4,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto !important;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "ร้านซ้งปาร์เก้",
+    "description": "จำหน่ายไม้ปาร์เก้ กระเบื้องยาง กาวสำหรับกระเบื้องยาง และกระเบื้องยางยี่ห้อ Dynoflex",
+    "telephone": "+66-89-922-1655",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "22, 11 ถ. ประชาอุทิศ แขวงราษฎร์บูรณะ เขตราษฎร์บูรณะ",
+      "addressLocality": "กรุงเทพมหานคร",
+      "postalCode": "10140",
+      "addressCountry": "TH"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top">ซ้ง<span>ปาร์เก้</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-navigation">
+        เมนู
+      </button>
+
+      <nav class="menu" id="primary-navigation" aria-label="เมนูหลัก">
+        <a href="#products">สินค้า</a>
+        <a href="#why">จุดเด่น</a>
+        <a href="#contact">ติดต่อ/แผนที่</a>
+        <a class="btn btn-primary" href="tel:0899221655">โทรสอบถาม</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">ร้านวัสดุพื้น · ประชาอุทิศ · ราษฎร์บูรณะ</p>
+
+          <h1>ร้านซ้งปาร์เก้</h1>
+
+          <p class="lead">
+            จำหน่ายไม้ปาร์เก้ กระเบื้องยาง กาวสำหรับกระเบื้องยาง
+            และกระเบื้องยางยี่ห้อ Dynoflex สำหรับงานปูพื้นบ้าน คอนโด ร้านค้า
+            และงานรีโนเวตพื้นที่
+          </p>
+
+          <p class="status">เปิดอยู่ · ปิด 18:00</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:0899221655">โทร 089 922 1655</a>
+
+            <a
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=MG73%2BJ7%20%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3"
+            >
+              เส้นทางไปร้าน
+            </a>
+
+            <button class="btn btn-secondary" type="button" id="shareBtn">แชร์</button>
+            <button class="btn btn-secondary" type="button" id="saveBtn">บันทึก</button>
+          </div>
+
+          <p class="address">
+            22, 11 ถ. ประชาอุทิศ แขวงราษฎร์บูรณะ เขตราษฎร์บูรณะ กรุงเทพมหานคร 10140
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-label="ข้อมูลร้านโดยย่อ">
+          <h2>ข้อมูลร้าน</h2>
+
+          <ul class="info-list">
+            <li>
+              <span aria-hidden="true">📍</span>
+              <span>
+                <strong>ที่อยู่</strong>
+                22, 11 ถ. ประชาอุทิศ แขวงราษฎร์บูรณะ เขตราษฎร์บูรณะ กรุงเทพมหานคร 10140
+              </span>
+            </li>
+
+            <li>
+              <span aria-hidden="true">📞</span>
+              <span>
+                <strong>โทรศัพท์</strong>
+                <a href="tel:0899221655">089 922 1655</a>
+              </span>
+            </li>
+
+            <li>
+              <span aria-hidden="true">🕒</span>
+              <span>
+                <strong>เวลาทำการ</strong>
+                เปิดอยู่ · ปิด 18:00
+              </span>
+            </li>
+
+            <li>
+              <span aria-hidden="true">🧭</span>
+              <span>
+                <strong>Plus Code</strong>
+                MG73+J7 กรุงเทพมหานคร
+              </span>
+            </li>
+          </ul>
+
+          <div class="mini-actions">
+            <a class="btn btn-secondary" href="tel:0899221655">โทร</a>
+            <a
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+              href="https://maps.google.com/maps?q=MG73%2BJ7%20%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3"
+            >
+              ดูแผนที่
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>สินค้าและบริการ</h2>
+          <p>ตัวอย่างสินค้าหลักของร้าน สามารถโทรสอบถามรุ่น ลาย และราคาหน้าร้านก่อนได้</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <div class="media media-wood" role="img" aria-label="ตัวอย่างพื้นไม้ปาร์เก้">
+              <span class="tag">งานไม้</span>
+            </div>
+            <div class="content">
+              <h3>ไม้ปาร์เก้</h3>
+              <p>วัสดุพื้นลายไม้ ให้ความรู้สึกอบอุ่น เหมาะกับงานตกแต่งบ้านและร้านค้า</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="media media-vinyl" role="img" aria-label="ตัวอย่างกระเบื้องยาง">
+              <span class="tag">งานพื้น</span>
+            </div>
+            <div class="content">
+              <h3>กระเบื้องยาง</h3>
+              <p>ดูแลรักษาง่าย เหมาะกับงานปูพื้นและงานปรับปรุงพื้นที่หลายรูปแบบ</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="media media-brand" role="img" aria-label="กระเบื้องยางยี่ห้อ Dynoflex">
+              <span class="tag">Dynoflex</span>
+            </div>
+            <div class="content">
+              <h3>กระเบื้องยาง Dynoflex</h3>
+              <p>กระเบื้องยางยี่ห้อ Dynoflex สำหรับลูกค้าที่มองหาแบรนด์นี้โดยเฉพาะ</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="media media-glue" role="img" aria-label="กาวสำหรับกระเบื้องยาง">
+              <span class="tag">อุปกรณ์ติดตั้ง</span>
+            </div>
+            <div class="content">
+              <h3>กาวสำหรับกระเบื้องยาง</h3>
+              <p>อุปกรณ์สำหรับงานติดตั้งกระเบื้องยาง เพื่อให้การปูพื้นเรียบร้อยมากขึ้น</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>ทำไมถึงเลือกใช้บริการร้านซ้งปาร์เก้</h2>
+          <p>เน้นข้อมูลชัดเจน ติดต่อสะดวก และเหมาะกับคนที่กำลังหาวัสดุพื้นในย่านราษฎร์บูรณะ</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>เดินทางสะดวก</h3>
+            <p>ร้านอยู่บนถนนประชาอุทิศ เขตราษฎร์บูรณะ ค้นหาด้วย Plus Code: MG73+J7 ได้</p>
+          </div>
+
+          <div class="feature">
+            <h3>โทรสอบถามก่อนได้</h3>
+            <p>สอบถามสินค้า ราคา และรายละเอียดการใช้งานได้ที่ 089 922 1655</p>
+          </div>
+
+          <div class="feature">
+            <h3>สินค้าตรงหมวดงานพื้น</h3>
+            <p>มีทั้งไม้ปาร์เก้ กระเบื้องยาง กาวติดตั้ง และสินค้าแบรนด์ Dynoflex</p>
+          </div>
+
+          <div class="feature">
+            <h3>เหมาะกับงานหลายแบบ</h3>
+            <p>ทั้งงานซ่อมแซมเล็ก ๆ งานรีโนเวตบ้าน หรืองานตกแต่งพื้นที่ร้านค้า</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>ติดต่อร้าน / แผนที่</h2>
+          <p>แนะนำให้โทรยืนยันก่อนเดินทาง หากต้องการดูสินค้าหน้าร้านหรือสอบถามสต็อกสินค้า</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="panel">
+            <h2>ข้อมูลการติดต่อ</h2>
+
+            <dl class="details">
+              <div>
+                <dt>ชื่อร้าน</dt>
+                <dd>ร้านซ้งปาร์เก้</dd>
+              </div>
+
+              <div>
+                <dt>ที่อยู่</dt>
+                <dd>
+                  22, 11 ถ. ประชาอุทิศ แขวงราษฎร์บูรณะ เขตราษฎร์บูรณะ กรุงเทพมหานคร 10140
+                </dd>
+              </div>
+
+              <div>
+                <dt>โทรศัพท์</dt>
+                <dd><a href="tel:0899221655">089 922 1655</a></dd>
+              </div>
+
+              <div>
+                <dt>เวลาทำการ</dt>
+                <dd>เปิดอยู่ · ปิด 18:00</dd>
+              </div>
+
+              <div>
+                <dt>Plus Code</dt>
+                <dd>MG73+J7 กรุงเทพมหานคร</dd>
+              </div>
+            </dl>
+
+            <div class="hero-actions" style="margin-top: 20px;">
+              <a class="btn btn-primary" href="tel:0899221655">โทรหาร้าน</a>
+              <a
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noopener"
+                href="https://www.google.com/maps/dir/?api=1&destination=MG73%2BJ7%20%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3"
+              >
+                ขอเส้นทาง
+              </a>
+            </div>
+          </div>
+
+          <div class="panel" style="padding: 0; overflow: hidden;">
+            <iframe
+              class="map-frame"
+              title="แผนที่ร้านซ้งปาร์เก้"
+              src="https://maps.google.com/maps?q=MG73%2BJ7%20%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> ร้านซ้งปาร์เก้ · ประชาอุทิศ ราษฎร์บูรณะ กรุงเทพมหานคร</p>
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="btn btn-primary" href="tel:0899221655">โทรหาร้าน</a>
+    <a
+      class="btn btn-secondary"
+      target="_blank"
+      rel="noopener"
+      href="https://www.google.com/maps/dir/?api=1&destination=MG73%2BJ7%20%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3"
+    >
+      เส้นทาง
+    </a>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toast = document.getElementById("toast");
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    const navToggle = document.getElementById("navToggle");
+    const menu = document.getElementById("primary-navigation");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("shareBtn").addEventListener("click", async () => {
+      const shareData = {
+        title: "ร้านซ้งปาร์เก้",
+        text: "ไม้ปาร์เก้ กระเบื้องยาง กาวสำหรับกระเบื้องยาง และกระเบื้องยาง Dynoflex",
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (error) {
+          // ผู้ใช้กดยกเลิกหรือแชร์ไม่สำเร็จ
+        }
+      } else if (navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          showToast("คัดลอกลิงก์แล้ว");
+        } catch (error) {
+          showToast("แชร์ไม่สำเร็จ");
+        }
+      } else {
+        showToast("แชร์ไม่สำเร็จ");
+      }
+    });
+
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      try {
+        localStorage.setItem("saved-song-parquet", "1");
+        showToast("บันทึกร้านแล้ว");
+      } catch (error) {
+        showToast("บันทึกไม่สำเร็จ");
+      }
+    });
+  </script>
+</body>
+</html>
